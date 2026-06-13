@@ -84,8 +84,8 @@ const config = {
         creditCard: "8px 10px 16px 0px rgba(0, 0, 0, 0.05)",
       },
       fontFamily: {
-        inter: "var(--font-inter)",
-        "ibm-plex-serif": "var(--font-ibm-plex-serif)",
+        inter: ["var(--font-inter)", "sans-serif"],
+        "ibm-plex-serif": ["var(--font-ibm-plex-serif)", "serif"],
       },
       keyframes: {
         "accordion-down": {
@@ -105,5 +105,6 @@ const config = {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
 
 export default config;

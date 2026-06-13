@@ -1,1 +1,28 @@
-export default function Layout({ children }: { children: React.ReactNode }) { return <main>{children}</main> }
+"use client"
+import Image from 'next/image'
+import Sidebar from "@/components/Sidebar";
+import MobileNav from "@/components/MobileNav";
+
+export default function Layout({
+  children, 
+}: Readonly<{ 
+  children: React.ReactNode;
+}>) { 
+  const loggedIn = { firstName: 'Adrian', lastName: 'JSM'};
+  return (
+    <main className="flex h-screen w-full font-inter">
+      <Sidebar user={loggedIn}/>
+      <div className="flex size-full flex-col">
+        <div className="root-layout">
+          <Image src="/icons/logo.svg" width={30} height={30} alt="logo" />
+          <div>
+            <MobileNav user={loggedIn} />
+          </div>
+        </div>
+        <div className="flex size-full overflow-y-auto">
+          {children}
+        </div>
+      </div>
+    </main>
+  );
+}
